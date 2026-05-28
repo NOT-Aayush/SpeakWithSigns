@@ -1,18 +1,18 @@
 import React from 'react'
-import {BrowserRouter as Router, Routers, Route, Navigate } from 'react-router-dom'
-import User from './pages/user'
-import Admin from './pages/Admin'
-import './App.css'
+import {BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import User from './pages/User.jsx'
+import Admin from './pages/Admin.jsx'
+import Webcam from 'react-webcam'
 
 function App() {
 
   return (
     <>
     <Router>
-      <Routers>
-        <Route path="/user" element={<User />} />
+      <Routes>
+        <Route path="/" element={<User />} />
         <Route path="/admin" element={<Admin />} />
-      </Routers>
+      </Routes>
     </Router>
     </>
   );
