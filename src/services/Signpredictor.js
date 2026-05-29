@@ -13,7 +13,7 @@ const labels = [
 
 export const loadSignModel = async () => {
   // Must be called before loadTFLiteModel, not inside it
-  tflite.setWasmPath('/tflite/');
+  await tflite.setWasmPath('/tflite/');
 
   model = await tflite.loadTFLiteModel('/handsmodel/sign_model.tflite');
   console.log("loaded");

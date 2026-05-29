@@ -1,6 +1,6 @@
 import pool from "../config/db.js";
 
-export const getAdminService = async(id,email) =>{
+export const getAdminService = async(email) =>{
     const result = await pool.query("SELECT id,email,password FROM admins WHERE email=$1 ",[email]);
     return result.rows[0];
 }

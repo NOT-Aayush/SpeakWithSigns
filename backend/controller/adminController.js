@@ -1,5 +1,5 @@
-import { getAllPersonService, deletePersonService, updatePersonService, addPersonService, getAdminService } from "../models/adminModel"
-import { toDescriptors } from "../middleware/facetodescriptors"
+import { getAllPersonService, deletePersonService, updatePersonService, addPersonService, getAdminService } from "../models/adminModel.js"
+import { toDescriptors } from "../middleware/facetodescriptors.js"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 

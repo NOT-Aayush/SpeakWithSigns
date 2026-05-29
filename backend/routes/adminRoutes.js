@@ -1,6 +1,6 @@
 import express from "express";
-import { addPerson , deletePerson , getAllPerson , updatePerson, getAdmin } from "../controller/adminController";
-import verifyToken from "../middleware/verifyToken";
+import { addPerson , deletePerson , getAllPerson , updatePerson, getAdmin } from "../controller/adminController.js";
+import verifyToken from "../middleware/verifyToken.js";
 const aRouter = express.Router();
 
 aRouter.post("/auth",getAdmin);
