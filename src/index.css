@@ -39,26 +39,33 @@ body,
   z-index: 2;
 }
 
-.chatbox{
-  width: 40%;
-  height: 100%;
-  color: aliceblue;
-  display: flex;
-
-  padding: 2rem;
-  box-sizing: border-box;
+.chatbox {
+    width: 40%;
+    height: 100%;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;      /* ✅ stack messages vertically */
+    gap: 8px;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow-y: auto;            /* ✅ scroll when transcript gets long */
 }
-.speaker{
+
+.message-block {
     display: flex;
     gap: 12px;
+    align-items: flex-start;
 }
 
-.speaker-name{
-    width: 180px;
+.speaker-name {
+    width: 100px;
+    font-weight: bold;
+    flex-shrink: 0;
     margin: 0;
 }
 
-.speaker-words{
+.speaker-words {
     flex: 1;
     margin: 0;
+    word-break: break-word;
 }

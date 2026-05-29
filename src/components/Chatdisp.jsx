@@ -1,19 +1,12 @@
-import { useState } from "react";
-
-function Chatdisp({ person, words }) {
-    const [chatMessages, setChatMessages] = useState([]);
-    
+function Chatdisp({ transcript }) {
     return (
         <div className="chatbox">
-
-                <h2 className="speaker-name">
-                    {person || "Unknown"}:
-                </h2>
-
-                <h3 className="speaker-words">
-                    {words || "still on work"}
-                </h3>
-
+            {transcript.map((entry, i) => (
+                <div key={i} className="message-block">
+                    <span className="speaker-name">{entry.speaker}: </span>
+                    <span className="speaker-words">{entry.words.join(" ")}</span>
+                </div>
+            ))}
         </div>
     );
 }

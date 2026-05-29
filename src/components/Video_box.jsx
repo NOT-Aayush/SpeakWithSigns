@@ -5,6 +5,7 @@ import { FilesetResolver, HandLandmarker } from "@mediapipe/tasks-vision";
 import { drawHands, drawFace } from '../utils/DrawingLandmarks';
 import { preprocessLandmarks } from '../utils/PreprocessingLandmarks';
 import { loadSignModel ,predictSign } from '../services/Signpredictor';
+import { StabilityBuffer } from '../utils/StabilityBuffer';
 
 function Vidbox({ setDetectedName, setCurrentWord }){
     // refs
@@ -30,7 +31,8 @@ function Vidbox({ setDetectedName, setCurrentWord }){
     handLandmarkerRef.current = handLandmarker;
     };
 
-
+    const wordBufferRef = useRef(new StabilityBuffer(10, 0.6));
+    const nameBufferRef = useRef(new StabilityBuffer(5, 0.8));
     useEffect(()=>{
         //let timestamp = 0;
         let interval;
@@ -84,12 +86,10 @@ function Vidbox({ setDetectedName, setCurrentWord }){
                             const preprocessedLandmarks =
                                 preprocessLandmarks(landmarks);
 
-                            const word =
-                                await predictSign(preprocessedLandmarks);
-
-                            if (word){
-                                setCurrentWord(word);
-                            }
+                            const word = await predictSign(preprocessedLandmarks);
+                            wordBufferRef.current.add(word);
+                            const stableWord = wordBufferRef.current.getStable();
+                            if (stableWord) setCurrentWord(stableWord);
                         }
                     }
                     if  (frameCount % 10 ===0){
@@ -111,8 +111,9 @@ function Vidbox({ setDetectedName, setCurrentWord }){
                                 }
                             );
                             const data = await response.json();
-                            detectedName = data.match.person.name;
-                            setDetectedName(detectedName);
+                            nameBufferRef.current.add(data.match.person.name);
+                            const stableName = nameBufferRef.current.getStable();
+                            if (stableName) setDetectedName(stableName);
                         }
                         drawFace(facedetections, ctx, detectedName);
                         

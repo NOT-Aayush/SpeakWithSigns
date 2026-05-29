@@ -1,10 +1,10 @@
 import express from "express";
-
+import { addPerson , deletePerson , getAllPerson , updatePerson } from "../controller/adminController";
 const aRouter = express.Router();
 
-aRouter.post("/newFace",newFace);
-aRouter.get("/fullLogs",getLogs);
-aRouter.get("/database",getDatabase);
-aRouter.delete("/removeFace",removeFace);
+aRouter.post("/add",addPerson);
+aRouter.get("/all",getAllPerson);
+aRouter.delete("/delete/:id",deletePerson);
+aRouter.put("/update/:id",updatePerson);
 
 export default aRouter;

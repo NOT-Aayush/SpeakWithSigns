@@ -4,6 +4,7 @@ import cors from "cors";
 import pool from "./config/db.js";
 import errorHandling from "./middleware/errorHandler.js";
 import uRouter from "./routes/userRoutes.js";
+import aRouter from "./routes/adminRoutes.js";
 import createUserTable from "./data/createTables.js";
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(cors());
 
 //routing
 app.use("/user",uRouter);
+app.use("/admin",aRouter);
 
 //error handling
 app.use(errorHandling);

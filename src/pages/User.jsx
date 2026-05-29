@@ -1,19 +1,44 @@
 import Vidbox from "../components/Video_box.jsx";
 import Chatdisp from "../components/Chatdisp.jsx";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function User(){
     const [detectedName, setDetectedName] = useState("System");
-    const [Currentword, setCurrentWord] = useState("Welcome")
+    const [transcript, setTranscript] = useState([]);
+    const lastNameRef = useRef("System");
+    const cooldownRef = useRef(false);
+
+    const handleNameChange = (name) => {
+        if (name !== lastNameRef.current) {
+            lastNameRef.current = name;
+            setDetectedName(name);
+            setTranscript(prev => [...prev, { speaker: name, words: [] }]);
+        }
+    };
+
+    const handleWordChange = (word) => {
+        if (cooldownRef.current) return; // ignore until cooldown expires
+        
+        cooldownRef.current = true;
+        setTimeout(() => { cooldownRef.current = false; }, 1500); // 1.5s between words
+
+        setTranscript(prev => {
+            if (prev.length === 0) {
+                return [{ speaker: lastNameRef.current, words: [word] }];
+            }
+            const updated = [...prev];
+            const last = { ...updated[updated.length - 1] };
+            last.words = [...last.words, word];
+            updated[updated.length - 1] = last;
+            return updated;
+        });
+    };
+
     return(
-        <>
         <div className="Container">
-                <Vidbox setDetectedName={setDetectedName}
-                setCurrentWord={setCurrentWord}/>
-                <Chatdisp person={detectedName}
-                words={Currentword}/>
+            <Vidbox setDetectedName={handleNameChange} setCurrentWord={handleWordChange}/>
+            <Chatdisp transcript={transcript}/>
         </div>
-        </>
     )
 }
 
