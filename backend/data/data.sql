@@ -6,13 +6,9 @@ CREATE TABLE persons(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE appearance_logs (
-
+CREATE TABLE admins (
     id SERIAL PRIMARY KEY,
-
-    user_id INTEGER REFERENCES persons(id),
-
-    detected_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-
-    confidence FLOAT
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

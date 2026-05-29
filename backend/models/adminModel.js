@@ -1,11 +1,15 @@
 import pool from "../config/db.js";
 
+export const getAdminService = async(id,email) =>{
+    const result = await pool.query("SELECT id,email,password FROM admins WHERE email=$1 ",[email]);
+    return result.rows[0];
+}
 export const getAllPersonService = async () =>{
     const result = await pool.query("SELECT * FROM persons");
     return result.rows;
 }
 export const deletePersonService = async (id) =>{
-    const result = await pool.query("DELETE FROM persons WHERE id=$1 RETURNINH *",[id]);
+    const result = await pool.query("DELETE FROM persons WHERE id=$1 RETURNING *",[id]);
     return result.rows[0];
 }
 
@@ -15,6 +19,6 @@ export const updatePersonService = async (name,face_descriptor,id) =>{
 }
 
 export const addPersonService = async (name,face_descriptor) =>{
-    const result = await pool.query("INSER INTO persons VALUES($1,$2 RETURNING *",[name,face_descriptor]);
+    const result = await pool.query("INSERT INTO persons(name,face_descriptor) VALUES($1,$2) RETURNING *",[name,face_descriptor]);
     return result.rows[0];
 }

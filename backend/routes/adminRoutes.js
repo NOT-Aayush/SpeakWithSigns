@@ -1,10 +1,12 @@
 import express from "express";
-import { addPerson , deletePerson , getAllPerson , updatePerson } from "../controller/adminController";
+import { addPerson , deletePerson , getAllPerson , updatePerson, getAdmin } from "../controller/adminController";
+import verifyToken from "../middleware/verifyToken";
 const aRouter = express.Router();
 
-aRouter.post("/add",addPerson);
-aRouter.get("/all",getAllPerson);
-aRouter.delete("/delete/:id",deletePerson);
-aRouter.put("/update/:id",updatePerson);
+aRouter.post("/auth",getAdmin);
+aRouter.post("/add",verifyToken,addPerson);
+aRouter.get("/all",verifyToken,getAllPerson);
+aRouter.delete("/delete/:id",verifyToken,deletePerson);
+aRouter.put("/update/:id",verifyToken,updatePerson);
 
 export default aRouter;
