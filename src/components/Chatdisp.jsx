@@ -6,8 +6,6 @@ function Chatdisp({ person, words }) {
     return (
         <div className="chatbox">
 
-            <div className="speaker">
-
                 <h2 className="speaker-name">
                     {person || "Unknown"}:
                 </h2>
@@ -15,8 +13,6 @@ function Chatdisp({ person, words }) {
                 <h3 className="speaker-words">
                     {words || "still on work"}
                 </h3>
-
-            </div>
 
         </div>
     );

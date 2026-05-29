@@ -3,26 +3,15 @@ import Webcam from 'react-webcam';
 import { detectFaces, loadFaceModels } from '../services/Facedetector';
 import { FilesetResolver, HandLandmarker } from "@mediapipe/tasks-vision";
 import { drawHands, drawFace } from '../utils/DrawingLandmarks';
-import * as tf from "@tensorflow/tfjs";
+import { preprocessLandmarks } from '../utils/PreprocessingLandmarks';
+import { loadSignModel ,predictSign } from '../services/Signpredictor';
 
-function Vidbox({ setDetectedName }) {
-
+function Vidbox({ setDetectedName, setCurrentWord }){
     // refs
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
     const handLandmarkerRef = useRef(null);
     const modelRef = useRef(null);
-
-    //loading model
-    const loadSignModel = async () => {
-
-        modelRef.current = await tf.loadLayersModel(
-            "/handsmodel/model.json"
-        );
-
-        console.log("sign model loaded");
-    };
-
    
     //loading mediapipe handsdetector
     const initializeHands = async () =>{
@@ -39,12 +28,11 @@ function Vidbox({ setDetectedName }) {
         numHands: 1
         });
     handLandmarkerRef.current = handLandmarker;
-    console.log("mediapipe model loaded");
     };
 
 
     useEffect(()=>{
-        let timestamp = 0;
+        //let timestamp = 0;
         let interval;
         const initialize = async () =>{
             await loadSignModel();
@@ -75,9 +63,34 @@ function Vidbox({ setDetectedName }) {
                 try {
 
                     if (handLandmarkerRef.current){
-                        timestamp +=33;
-                        const results = handLandmarkerRef.current.detectForVideo(video,timestamp);
+
+                        const timestamp = performance.now();
+
+                        const results =
+                            handLandmarkerRef.current.detectForVideo(
+                                video,
+                                timestamp
+                            );
+
                         drawHands(results, ctx, canvas);
+
+                        if (
+                            results.landmarks &&
+                            results.landmarks.length > 0
+                        ){
+
+                            const landmarks = results.landmarks[0];
+
+                            const preprocessedLandmarks =
+                                preprocessLandmarks(landmarks);
+
+                            const word =
+                                await predictSign(preprocessedLandmarks);
+
+                            if (word){
+                                setCurrentWord(word);
+                            }
+                        }
                     }
                     if  (frameCount % 10 ===0){
                         let detectedName = "Unknown";

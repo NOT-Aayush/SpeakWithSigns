@@ -1,19 +1,20 @@
 import React from 'react'
-import {BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import User from './pages/User.jsx'
 import Admin from './pages/Admin.jsx'
-import Webcam from 'react-webcam'
+import Navbar from './components/Navbar.jsx'
 
 function App() {
 
   return (
     <>
-    <Router>
+    <main className='main-placeholder'>
+      <Navbar />
       <Routes>
         <Route path="/" element={<User />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
-    </Router>
+    </main>
     </>
   );
 }
