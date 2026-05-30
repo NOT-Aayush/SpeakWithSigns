@@ -111,9 +111,17 @@ function Vidbox({ setDetectedName, setCurrentWord }){
                                 }
                             );
                             const data = await response.json();
-                            nameBufferRef.current.add(data.match.person.name);
-                            const stableName = nameBufferRef.current.getStable();
-                            if (stableName) setDetectedName(stableName);
+
+                            if (data.match?.person?.name) {
+                                nameBufferRef.current.add(data.match.person.name);
+
+                                const stableName = nameBufferRef.current.getStable();
+
+                                if (stableName) {
+                                    detectedName = stableName;
+                                    setDetectedName(stableName);
+                                }
+                            }
                         }
                         drawFace(facedetections, ctx, detectedName);
                         

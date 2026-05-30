@@ -13,10 +13,11 @@ const loadModels = async () => {
     console.log("models loaded");
 };
 
-loadModels();
+export const modelsLoaded = loadModels();
 
 export const toDescriptors = async (base64) => {
     try {
+        await modelsLoaded;
         // convert base64 to canvas Image
         const base64Data = base64.replace(/^data:image\/\w+;base64,/, "");
         const buffer = Buffer.from(base64Data, "base64");

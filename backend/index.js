@@ -12,7 +12,9 @@ const app =express();
 const port = process.env.PORT || 8002;
 
 //importing middlewares
-app.use(express.json());
+app.use(express.json({
+    limit: "10mb"
+}));
 app.use(cors());
 
 //routing

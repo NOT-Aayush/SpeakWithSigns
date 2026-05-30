@@ -47,7 +47,8 @@ export const addPerson= async(req, res, next)=>{
     const{name,photo} = req.body;
     const descriptors= await toDescriptors(photo);
     const result = await addPersonService(name, descriptors);
-    handleResponse(res,200,"Displaying All users",result)
+    console.log("added Person");
+    handleResponse(res,200,"added user",result)
     } catch (err) {
         next(err);
     }
@@ -56,7 +57,8 @@ export const addPerson= async(req, res, next)=>{
 export const deletePerson= async(req, res, next)=>{
     try{
     const result = await deletePersonService(req.params.id);
-    handleResponse(res,200,"Displaying All users",result)
+    console.log("deleted Person");
+    handleResponse(res,200,"Deleted user",result)
     } catch (err) {
         next(err);
     }
@@ -67,7 +69,8 @@ export const updatePerson= async(req, res, next)=>{
     const {name,photo}= req.body;
     const descriptors = await toDescriptors(photo);
     const result = await updatePersonService(name,descriptors,req.params.id);
-    handleResponse(res,200,"Displaying All users",result)
+    console.log("updated Person");
+    handleResponse(res,200,"Updated user",result)
     } catch (err) {
         next(err);
     }

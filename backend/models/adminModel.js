@@ -14,11 +14,11 @@ export const deletePersonService = async (id) =>{
 }
 
 export const updatePersonService = async (name,face_descriptor,id) =>{
-    const result = await pool.query("UPDATE persons SET name=$1,face_descriptor=$2 WHERE id=$3 RETURNING *",[name,face_descriptor,id]);
+    const result = await pool.query("UPDATE persons SET name=$1,face_descriptor=$2 WHERE id=$3 RETURNING *",[name,JSON.stringify(face_descriptor),id]);
     return result.rows[0];
 }
 
 export const addPersonService = async (name,face_descriptor) =>{
-    const result = await pool.query("INSERT INTO persons(name,face_descriptor) VALUES($1,$2) RETURNING *",[name,face_descriptor]);
+    const result = await pool.query("INSERT INTO persons(name,face_descriptor) VALUES($1,$2) RETURNING *",[name,JSON.stringify(face_descriptor)]);
     return result.rows[0];
 }

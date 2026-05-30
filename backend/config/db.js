@@ -12,8 +12,5 @@ const pool = new Pool({
 });
 
 console.log(process.env.DBPORT);
-pool.on('connect',()=>{
-    console.log("connected with database")
-})
 
 export default pool
