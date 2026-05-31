@@ -1,0 +1,41 @@
+.make-changes{
+    width: 600px;
+
+    margin: 40px auto;
+
+    padding: 2rem;
+
+    background: #1c1d23;
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.make-changes input,
+.make-changes select{
+    padding: .9rem;
+
+    border-radius: 10px;
+
+    border: 1px solid #2c2e37;
+
+    background: #2c2e37;
+    color: white;
+}
+
+.make-changes button{
+    background: #34285a;
+    color: white;
+
+    padding: .9rem 1.5rem;
+
+    border-radius: 10px;
+}
+
+.make-changes img{
+    border-radius: 12px;
+    align-self: center;
+}

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { authFetch } from "../utils/authFetch.js";
 import { useNavigate } from "react-router-dom";
 import UsersData from "../components/UsersData.jsx";
-
+import "../css/Admin.css";
 function Admin(){
     const navigate = useNavigate();
     const [persons, setPersons] = useState([]);

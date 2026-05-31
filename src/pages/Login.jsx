@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "../css/Login.css"
 function Login(){
     const navigate = useNavigate();
     const [email,setEmail] = useState("");
@@ -33,16 +33,18 @@ function Login(){
     
     return(
         <>
-        <div className = "login-form">
-            <h1>Authenticate</h1>
-            <label>Admin Email</label>
-            <input type="text" className="userid" placeholder="Enter Your Email" value={email} onChange={e => setEmail(e.target.value)} />
-            <label>Password</label>
-            <input type="password" className="password" value={password} placeholder="Enter Your Password" onChange={e => setPassword(e.target.value)} />
-            {error && <p className="error-message">{error}</p>}
-            <button className="authenticate-button" onClick={() => authenticateService(email, password)} disabled={loading}>
-                {loading ? "Authenticating..." : "Login"}
-            </button>        
+        <div className="login-page">
+            <div className = "login-form">
+                <h1>Authenticate</h1>
+                <label>Admin Email</label>
+                <input type="text" className="userid" placeholder="Enter Your Email" value={email} onChange={e => setEmail(e.target.value)} />
+                <label>Password</label>
+                <input type="password" className="password" value={password} placeholder="Enter Your Password" onChange={e => setPassword(e.target.value)} />
+                {error && <p className="error-message">{error}</p>}
+                <button className="authenticate-button" onClick={() => authenticateService(email, password)} disabled={loading}>
+                    {loading ? "Authenticating..." : "Login"}
+                </button>        
+            </div>
         </div>
         </>
     )

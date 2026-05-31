@@ -1,7 +1,7 @@
 import Vidbox from "../components/Video_box.jsx";
 import Chatdisp from "../components/Chatdisp.jsx";
 import { useState, useRef } from "react";
-
+import "../css/User.css"
 function User(){
     const [detectedName, setDetectedName] = useState("System");
     const [transcript, setTranscript] = useState([]);
@@ -17,11 +17,12 @@ function User(){
     };
 
     const handleWordChange = (word) => {
-        if (cooldownRef.current) return; // ignore until cooldown expires
+        if (word==='space') word = "_";
+        if (cooldownRef.current) return; 
         
         cooldownRef.current = true;
-        setTimeout(() => { cooldownRef.current = false; }, 1500); // 1.5s between words
-
+        setTimeout(() => { cooldownRef.current = false; }, 1500);
+        
         setTranscript(prev => {
             if (prev.length === 0) {
                 return [{ speaker: lastNameRef.current, words: [word] }];

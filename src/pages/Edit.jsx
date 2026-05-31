@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { authFetch } from "../utils/authFetch.js";
-
+import "../css/Edit.css"
 const Edit = ()=>{
     const [action,setAction] = useState("");
     const [id,setId] = useState("");

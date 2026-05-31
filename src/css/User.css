@@ -1,0 +1,96 @@
+.Container{
+    width: 100%;
+    height: calc(100vh - 70px);
+
+    display: flex;
+    background: #16171d;
+}
+
+/* Video */
+
+.videobox{
+    width: 70%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    padding: 20px;
+}
+
+.webcam{
+    width: 100%;
+    height: 90%;
+
+    object-fit: cover;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 0 0 1px #2c2e37,
+        0 10px 30px rgba(0,0,0,.35);
+}
+
+.overlay{
+    position: absolute;
+
+    width: calc(100% - 40px);
+    height: 90%;
+
+    border-radius: 24px;
+
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Chat */
+
+.chatbox{
+    width: 30%;
+    height: 100%;
+
+    background: #1c1d23;
+
+    border-left: 1px solid #2c2e37;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    overflow-y: auto;
+}
+
+.chat-heading{
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #2c2e37;
+}
+
+.message-block{
+    background: #2c2e37;
+
+    border-radius: 16px;
+
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.speaker-name{
+    color: #6ea8ff;
+    font-weight: 700;
+}
+
+.speaker-words{
+    line-height: 1.6;
+    word-break: break-word;
+}

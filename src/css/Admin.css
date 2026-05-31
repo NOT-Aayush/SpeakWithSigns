@@ -1,0 +1,71 @@
+.Admin-main{
+    min-height: calc(100vh - 70px);
+
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 2rem;
+
+    background: #16171d;
+    color: white;
+}
+
+.controls{
+    display: flex;
+    gap: 1rem;
+}
+
+.controls button{
+    background: #34285a;
+    color: white;
+
+    padding: .8rem 1.5rem;
+
+    border-radius: 10px;
+}
+
+.controls button:hover{
+    background: #47367d;
+}
+
+.database{
+    width: 95%;
+    overflow-x: auto;
+}
+
+.persons-table{
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: #1c1d23;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+.persons-table th{
+    background: #34285a;
+    color: white;
+
+    padding: 1rem;
+    text-align: left;
+}
+
+.persons-table td{
+    padding: 1rem;
+
+    border-bottom: 1px solid #2c2e37;
+}
+
+.persons-table tr:hover{
+    background: #252730;
+}
+
+.error-message{
+    color: #ff6b6b;
+}

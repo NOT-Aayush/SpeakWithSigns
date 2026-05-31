@@ -1,71 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html,
 body,
 #root{
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.Container{
-  display: flex;
-  width: 100%;
-  height: 100%;
-  background-color: #16171d;
-}
-
-.videobox{
-  width: 60%;
-  height: 95%;
-  position: relative;
-  overflow: hidden;
-}
-.webcam{
-  width: 100%;
-  padding: 10px;
-  height: 100%;
-  object-fit: fill;
-  display: block;
-  z-index: 1;
-}
-.overlay{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.chatbox {
-    width: 40%;
+    width: 100%;
     height: 100%;
-    color: aliceblue;
-    display: flex;
-    flex-direction: column;      /* ✅ stack messages vertically */
-    gap: 8px;
-    padding: 2rem;
-    box-sizing: border-box;
-    overflow-y: auto;            /* ✅ scroll when transcript gets long */
+    font-family: Inter, Arial, sans-serif;
+    background: #16171d;
+    color: white;
 }
 
-.message-block {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
+button{
+    cursor: pointer;
+    border: none;
+    transition: .2s ease;
 }
 
-.speaker-name {
-    width: 100px;
-    font-weight: bold;
-    flex-shrink: 0;
-    margin: 0;
-}
-
-.speaker-words {
-    flex: 1;
-    margin: 0;
-    word-break: break-word;
+input,
+select{
+    outline: none;
 }
