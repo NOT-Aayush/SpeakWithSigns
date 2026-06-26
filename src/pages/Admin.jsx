@@ -13,7 +13,7 @@ function Admin(){
         setError("");
         setLoading(true);
         try{
-            const response = await authFetch(`${API_URL}admin/all`, {
+            const response = await authFetch(`${API_URL}/admin/all`, {
                 method: "GET"
             })
             const data = await response.json();
