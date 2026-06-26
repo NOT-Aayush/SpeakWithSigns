@@ -153,3 +153,51 @@
     border-radius: 2px;
     margin: 0.25rem 0;
 }
+
+/* ── Tablet (≤ 768px) ── */
+
+@media (max-width: 768px){
+    .make-changes{
+        width: 90%;
+        max-width: 560px;
+        margin: 2rem auto;
+        padding: 2rem 2rem;
+    }
+}
+
+/* ── Mobile (≤ 480px) ── */
+
+@media (max-width: 480px){
+    .make-changes{
+        width: 92%;
+        margin: 1.25rem auto;
+        padding: 1.75rem 1.25rem;
+        border-radius: 20px;
+        gap: 0.9rem;
+    }
+
+    .make-changes h2{
+        font-size: 1.2rem;
+    }
+
+    .make-changes input,
+    .make-changes select{
+        font-size: 1rem; /* prevents iOS zoom */
+        padding: 0.75rem 0.9rem;
+    }
+
+    .edit-actions{
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .make-changes button{
+        padding: 0.85rem 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .make-changes img{
+        width: 100px;
+        height: 100px;
+    }
+}

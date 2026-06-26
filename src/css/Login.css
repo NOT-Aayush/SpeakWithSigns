@@ -143,3 +143,44 @@
     border-radius: 8px;
     border: 1px solid rgba(255,107,107,0.2);
 }
+
+/* ── Tablet (≤ 768px) ── */
+
+@media (max-width: 768px){
+    .login-form{
+        width: 90%;
+        max-width: 460px;
+        padding: 2.5rem 2rem;
+    }
+}
+
+/* ── Mobile (≤ 480px) ── */
+
+@media (max-width: 480px){
+    .login-page{
+        align-items: flex-start;
+        padding-top: 2rem;
+        background-size: 30px 30px;
+    }
+
+    .login-form{
+        width: 92%;
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+        gap: 1rem;
+    }
+
+    .login-form h1{
+        font-size: 1.5rem;
+    }
+
+    .login-form input{
+        font-size: 1rem; /* prevents iOS zoom */
+        padding: 0.8rem 0.9rem;
+    }
+
+    .authenticate-button{
+        padding: 0.85rem;
+        font-size: 1rem;
+    }
+}

@@ -172,3 +172,67 @@
     color: rgba(255,255,255,0.35);
     font-weight: 500;
 }
+
+/* ── Tablet (≤ 768px) ── */
+
+@media (max-width: 768px){
+    .Admin-main{
+        padding: 1.75rem 1.25rem;
+        gap: 1.5rem;
+    }
+
+    .admin-heading,
+    .database{
+        width: 100%;
+    }
+
+    .admin-heading h2{
+        font-size: 1.25rem;
+    }
+
+    .persons-table th,
+    .persons-table td{
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* ── Mobile (≤ 480px) ── */
+
+@media (max-width: 480px){
+    .Admin-main{
+        padding: 1.25rem 1rem;
+        gap: 1.25rem;
+    }
+
+    .controls{
+        gap: 0.5rem;
+    }
+
+    .controls button{
+        padding: 0.55rem 1rem;
+        font-size: 0.82rem;
+    }
+
+    .admin-heading h2{
+        font-size: 1.1rem;
+    }
+
+    .database{
+        border-radius: 14px;
+    }
+
+    .persons-table{
+        /* allow horizontal scroll for wide tables */
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .persons-table th,
+    .persons-table td{
+        padding: 0.7rem 0.85rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+}
