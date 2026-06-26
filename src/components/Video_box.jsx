@@ -8,6 +8,7 @@ import { loadSignModel ,predictSign } from '../services/Signpredictor';
 import { StabilityBuffer } from '../utils/StabilityBuffer';
 
 function Vidbox({ setDetectedName, setCurrentWord }){
+    const API_URL = import.meta.env.VITE_API_URL;
     // refs
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
@@ -99,7 +100,7 @@ function Vidbox({ setDetectedName, setCurrentWord }){
 
                             const descriptorArray = Array.from(face.descriptor);
 
-                            const response = await fetch("https://speakwithsigns.onrender.com/user/getface",
+                            const response = await fetch(`${API_URL}/user/getface`,
                                 {
                                     method: "POST",
                                     headers:{

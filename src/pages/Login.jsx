@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Login.css"
 function Login(){
+    const API_URL = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
@@ -12,7 +13,7 @@ function Login(){
         setError("");
         setLoading(true);
             try{
-            const response = await fetch("https://speakwithsigns.onrender.com/admin/auth", {
+            const response = await fetch(`${API_URL}/admin/auth`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email: amail, password: pass })

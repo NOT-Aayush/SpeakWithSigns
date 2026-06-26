@@ -2,6 +2,7 @@ import { useState } from "react";
 import { authFetch } from "../utils/authFetch.js";
 import "../css/Edit.css"
 const Edit = ()=>{
+    const API_URL = import.meta.env.VITE_API_URL;
     const [action,setAction] = useState("");
     const [id,setId] = useState("");
     const [name,setName] = useState("");
@@ -30,7 +31,7 @@ const Edit = ()=>{
 
             switch (action) {
                 case "add":
-                    response = await authFetch("https://speakwithsigns.onrender.com/admin/add", {
+                    response = await authFetch(`${API_URL}/admin/add`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -43,7 +44,7 @@ const Edit = ()=>{
                     break;
 
                 case "update":
-                    response = await authFetch(`https://speakwithsigns.onrender.com/admin/update/${id}`, {
+                    response = await authFetch(`${API_URL}/admin/update/${id}`, {
                         method: "PUT",
                         headers: {
                             "Content-Type": "application/json"
@@ -55,7 +56,7 @@ const Edit = ()=>{
                     break;
 
                 case "delete":
-                    response = await authFetch(`https://speakwithsigns.onrender.com/admin/delete/${id}`, {
+                    response = await authFetch(`${API_URL}/admin/delete/${id}`, {
                         method: "DELETE"
                     });
                     result = await response.json();
