@@ -99,7 +99,7 @@ function Vidbox({ setDetectedName, setCurrentWord }){
 
                             const descriptorArray = Array.from(face.descriptor);
 
-                            const response = await fetch("http://localhost:8002/user/getface",
+                            const response = await fetch("https://speakwithsigns.onrender.com/user/getface",
                                 {
                                     method: "POST",
                                     headers:{

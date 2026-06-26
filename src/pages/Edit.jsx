@@ -30,7 +30,7 @@ const Edit = ()=>{
 
             switch (action) {
                 case "add":
-                    response = await authFetch("http://localhost:8002/admin/add", {
+                    response = await authFetch("https://speakwithsigns.onrender.com/admin/add", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -43,7 +43,7 @@ const Edit = ()=>{
                     break;
 
                 case "update":
-                    response = await authFetch(`http://localhost:8002/admin/update/${id}`, {
+                    response = await authFetch(`https://speakwithsigns.onrender.com/admin/update/${id}`, {
                         method: "PUT",
                         headers: {
                             "Content-Type": "application/json"
@@ -55,7 +55,7 @@ const Edit = ()=>{
                     break;
 
                 case "delete":
-                    response = await authFetch(`http://localhost:8002/admin/delete/${id}`, {
+                    response = await authFetch(`https://speakwithsigns.onrender.com/admin/delete/${id}`, {
                         method: "DELETE"
                     });
                     result = await response.json();
