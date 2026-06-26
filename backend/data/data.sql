@@ -1,0 +1,14 @@
+CREATE TABLE persons(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    face_descriptor JSONB NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE admins (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
