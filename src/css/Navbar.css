@@ -120,6 +120,19 @@
     transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+/* Animate hamburger into an X when menu is open */
+.navbar-toggle.active span:nth-child(1){
+    transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-toggle.active span:nth-child(2){
+    opacity: 0;
+}
+
+.navbar-toggle.active span:nth-child(3){
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* ── Tablet (≤ 768px) ── */
 
 @media (max-width: 768px){
