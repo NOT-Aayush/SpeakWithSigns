@@ -1,16 +1,27 @@
-# React + Vite
+# SpeakWithSigns
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SpeakWithSigns is a full-stack AI-powered communication platform that translates American Sign Language (ASL) gestures into text in real time. Built with React, Node.js, Express, PostgreSQL, TensorFlow Lite, and MediaPipe, it combines AI-driven gesture recognition, face recognition, secure JWT authentication, and RESTful APIs to enable seamless and accessible communication.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Real-time ASL gesture recognition using TensorFlow Lite and MediaPipe
+* Face recognition-based user identification
+* Secure JWT authentication
+* RESTful API architecture with Express.js
+* PostgreSQL database for user and application data
+* Responsive React frontend with real-time predictions
+* Optimized for low-latency inference and smooth user experience
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Frontend:** React, Vite, JavaScript, HTML, CSS
 
-## Expanding the ESLint configuration
+**Backend:** Node.js, Express.js
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**AI/ML:** TensorFlow Lite, MediaPipe Hands, Face API.js
+
+**Database:** PostgreSQL
+
+**Authentication:** JWT
+
+SpeakWithSigns demonstrates the integration of AI, computer vision, and modern full-stack web development to build an accessible real-time communication solution.
