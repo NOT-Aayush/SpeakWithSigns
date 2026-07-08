@@ -2,9 +2,12 @@
 
 SpeakWithSigns is a full-stack AI-powered communication platform that translates American Sign Language (ASL) gestures into text in real time. Built with React, Node.js, Express, PostgreSQL, TensorFlow Lite, and MediaPipe, it combines AI-driven gesture recognition, face recognition, secure JWT authentication, and RESTful APIs to enable seamless and accessible communication.
 
-## Deployed
+## Deployement
 
 * It is deployed on : https://speakwithsign.aayushpandey.in/
+* Frontend: Vercel
+* Backend: Render
+* Database: Neon
 ## Features
 
 * Real-time ASL gesture recognition using TensorFlow Lite and MediaPipe
